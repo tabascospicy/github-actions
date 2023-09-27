@@ -1,0 +1,24 @@
+name: Print hola mundo
+on: [push]
+jobs:
+  # Get the current step from .github/script/STEP so we can
+  # limit running the main job when the learner is on the same step.
+  print:
+    name: Print Hello
+    runs-on: ubuntu-latest
+    strategy:
+            matrix:
+                node-version: [12.x]
+    steps: 
+        - uses: actions/checkout@v3
+        
+        - name: Setup Node
+          uses: actions/setup-node@v2
+          with:
+              node-version: ${{ matrix.node-version }}
+              
+        - name: print data
+          run: Node lol.js
+
+        - name: print final
+          run: echo "lol" 
