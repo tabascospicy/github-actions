@@ -1,0 +1,21 @@
+name: Print hola mundo
+on: [push]
+jobs:
+  # Get the current step from .github/script/STEP so we can
+  # limit running the main job when the learner is on the same step.
+  print:
+    name: Print Hello
+    runs-on: ubuntu-latest
+    steps: 
+        - uses: actions/checkout@v3
+        
+        - name: Setup Node
+          uses: actions/setup-node@v3
+          with:
+              node-version: 18
+              
+        - name: print data
+          run: node lol.js
+
+        - name: print final
+          run: echo "lol" 
