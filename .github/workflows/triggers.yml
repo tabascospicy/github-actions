@@ -1,4 +1,4 @@
-name: Print hola mundo
+name: Print hola trigger mundo
 on: [push,pull_request,issue_comment]
 jobs:
   # Get the current step from .github/script/STEP so we can
@@ -13,9 +13,6 @@ jobs:
           uses: actions/setup-node@v3
           with:
               node-version: 18
-              
-        - name: print data
-          run: node lol.js
 
         - name: print final
           run: echo "trigger" 
