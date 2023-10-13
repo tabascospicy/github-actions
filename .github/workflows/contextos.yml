@@ -1,11 +1,23 @@
-name: Expression
-run-name: Practicando expresiones
-
-on: push
+name: Saludo usando variables
+on:
+  push
+env:
+  DIA_DE_SEMANA: Lunes
 jobs:
-  mayor:
-   if: ${{github.ref === 'refs/heads/aprendiendo-github-actions'}}
-   runs-on: ubuntu-latest
-   steps:
-    - name : log information
-      run: echo "desplegando aqui chico $GITHUB_REF"
+  mostrar-variables:
+    env:
+      VARS: ${{ toJSON(vars) }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: imprimir variables
+        run: echo $VARS
+  saludo-variables:
+    runs-on: ubuntu-latest
+    env:
+      SALUDO: Hola
+    steps:
+      - name: saludar
+        run : echo $SALUDO, $NOMBRE y $NOMBRE2. Hoy es $DIA_DE_SEMANA
+        env:
+          NOMBRE2: Villanos
+          NOMBRE: ${{ vars.NOMBRE }}
