@@ -1,0 +1,11 @@
+name: Expression
+run-name: Practicando expresiones
+
+on: push
+jobs:
+  mayor:
+   if: ${{github.ref === 'refs/heads/aprendiendo-github-actions'}}
+   runs-on: ubuntu-latest
+   steps:
+    - name : log information
+      run: echo "desplegando aqui chico $GITHUB_REF"
