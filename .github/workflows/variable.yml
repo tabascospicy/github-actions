@@ -1,4 +1,4 @@
-name: Saludo usando variables y secretos
+name: Saludo usando variables nomas
 on:
   workflow_dispatch
 env:
@@ -11,8 +11,3 @@ jobs:
     steps:
       - name: Saludo variables
         run: echo "$SALUDO, ${{ vars.NOMBRE }}. Hoy es $DIA_DE_SEMANA"
-  saludo-secretos:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Saludo secretos
-        run: echo "$SALUDO, ${{ vars.NOMBRE }}. Tu contraseña es ${{ secrets.CONTRASENA }}!"
