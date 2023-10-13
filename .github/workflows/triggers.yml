@@ -1,5 +1,12 @@
 name: Print hola trigger mundo
-on: [push,pull_request,issue_comment]
+on: 
+  push:
+    branches:
+      - "aprendiendo-github-actions"
+  pull_request:
+    types: [opened] 
+  issues:
+    types: [opened]
 jobs:
   # Get the current step from .github/script/STEP so we can
   # limit running the main job when the learner is on the same step.
