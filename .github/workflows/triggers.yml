@@ -1,4 +1,5 @@
-name: Print hola trigger mundo
+name: "Triggers"
+run-name: "testing some triggers"
 on: 
   push:
     branches:
