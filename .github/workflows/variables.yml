@@ -1,6 +1,8 @@
 name: Saludo usando variables y secretos
 on:
-  workflow_dispatch
+ push:
+     branches:
+      - "aprendiendo-github-actions"
 env:
   DIA_DE_SEMANA : Lunes
 jobs:
