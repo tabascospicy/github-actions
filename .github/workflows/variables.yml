@@ -1,8 +1,8 @@
-name: Saludo usando variables y secretos
+name: Saludo usando variables y secretos y deploy a ec2
 on:
  push:
      branches:
-      - "aprendiendo-github-actions"
+      - aprendiendo-github-actions
 env:
   DIA_DE_SEMANA : Lunes
 jobs:
