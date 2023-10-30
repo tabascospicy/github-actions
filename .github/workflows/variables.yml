@@ -1,0 +1,20 @@
+name: Saludo usando variables y secretos y deploy a ec2
+on:
+ push:
+     branches:
+      - aprendiendo-github-actions
+env:
+  DIA_DE_SEMANA : Lunes
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Deploy Docker to AWS (EC2)
+        uses: bitovi/github-actions-deploy-docker-to-ec2@v0.5.8
+        with:
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_default_region: us-east-1
+          dot_env: ${{ secrets.DOT_ENV }}
+            
